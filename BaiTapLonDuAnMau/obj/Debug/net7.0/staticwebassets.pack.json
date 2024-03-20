@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets\\css\\bootstrap.min.css"
     },
     {
+      "Id": "C:\\Users\\DƯƠNG VĂN SỰ\\source\\repos\\BaiTapLonDuAnMau\\BaiTapLonDuAnMau\\wwwroot\\css\\login.css",
+      "PackagePath": "staticwebassets\\css\\login.css"
+    },
+    {
       "Id": "C:\\Users\\DƯƠNG VĂN SỰ\\source\\repos\\BaiTapLonDuAnMau\\BaiTapLonDuAnMau\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
@@ -123,6 +127,10 @@
     {
       "Id": "C:\\Users\\DƯƠNG VĂN SỰ\\source\\repos\\BaiTapLonDuAnMau\\BaiTapLonDuAnMau\\wwwroot\\img\\video.jpg",
       "PackagePath": "staticwebassets\\img\\video.jpg"
+    },
+    {
+      "Id": "C:\\Users\\DƯƠNG VĂN SỰ\\source\\repos\\BaiTapLonDuAnMau\\BaiTapLonDuAnMau\\wwwroot\\js\\login.js",
+      "PackagePath": "staticwebassets\\js\\login.js"
     },
     {
       "Id": "C:\\Users\\DƯƠNG VĂN SỰ\\source\\repos\\BaiTapLonDuAnMau\\BaiTapLonDuAnMau\\wwwroot\\js\\main.js",

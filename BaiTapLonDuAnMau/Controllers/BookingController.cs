@@ -42,7 +42,8 @@ namespace BaiTapLonDuAnMau.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> BookNow(string fullName, string phoneNumber, DateTime checkIn, DateTime checkOut, int numAdults, int numChildren, int roomId, string specialRequests)
+        public async Task<IActionResult> BookNow(string fullName, string phoneNumber,string email,
+            DateTime checkIn, DateTime checkOut, int numAdults, int numChildren, int roomId, string specialRequests)
         {
             try
             {
@@ -50,14 +51,16 @@ namespace BaiTapLonDuAnMau.Controllers
                 // Create a new Booking object
                 var booking = new Booking
                 {
+                    RoomId = roomId,
                     FullName = fullName,
                     PhoneNumber = phoneNumber,
                     CheckIn = checkIn,
                     CheckOut = checkOut,
                     NumAdults = numAdults,
                     NumChildren = numChildren,
-                    RoomId = roomId,
-                    SpecialRequests = specialRequests
+                    
+                    SpecialRequests = specialRequests,
+                    Email=email,
                 };
 
                 // Add the new Booking to the context

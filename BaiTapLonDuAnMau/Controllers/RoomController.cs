@@ -32,6 +32,147 @@ namespace BaiTapLonDuAnMau.Controllers
                           Problem("Entity set 'BTLDAM.Rooms'  is null.");
         }
         [HttpGet]
+        public async Task<IActionResult> EmployeeIndex()
+        {
+            return _context.Rooms != null ?
+                        View(await _context.Rooms.ToListAsync()) :
+                        Problem("Entity set 'BTLDAM.Rooms'  is null.");
+        }
+        public async Task<IActionResult> EmployeeEdit(int? id)
+        {
+            if (id == null || _context.Rooms == null)
+            {
+                return NotFound();
+            }
+            var room = await _context.Rooms.FindAsync(id);
+            if (room == null)
+            {
+                return NotFound();
+            }
+            IFormFile formFile = null;
+            string formfileAString = "";
+            string relativePath = room.ImageUrl;
+            string rootPath = _webHostEnvironment.WebRootPath;
+
+            // Kết hợp đường dẫn root với đường dẫn tương đối của ảnh
+            string physicalPath = Path.Combine(rootPath, relativePath.TrimStart('/'));
+            // Kiểm tra tệp tin avatar có tồn tại không
+            if (System.IO.File.Exists(physicalPath))
+            {
+                // Mở đọc tệp tin và tạo một đối tượng Stream
+                using (var stream = System.IO.File.OpenRead(physicalPath))
+                {
+                    // Tạo đối tượng IFormFile từ Stream và thông tin tên tệp tin
+                    formFile = new FormFile(stream, 0, stream.Length, null, Path.GetFileName(physicalPath));
+                    formfileAString = formFile.FileName;
+                    // Gán formFile cho thuộc tính Avatar của viewModel
+
+                }
+            }
+            // Để truyền dữ liệu của tài khoản cần chỉnh sửa vào view, bạn cần truyền nó thông qua model hoặc ViewBag
+            RoomViewModel viewModel = new RoomViewModel
+            {
+                Id = room.Id,
+                RoomNumber = room.RoomNumber,
+                RoomType = room.RoomType,
+                Price = room.Price,
+                Bath = room.Bath,
+                Area = room.Area,
+                Bed = room.Bed,
+                Description = room.Description,
+                Stars = room.Stars,
+                FloorNumber = room.FloorNumber,
+                Status = room.Status,
+                Wifi = room.Wifi,
+                ImageUrl = formFile
+
+
+            };
+
+
+            return View(viewModel);
+        }
+
+        // POST: Room/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EmployeeEditEdit(int id, RoomViewModel roomViewModel)
+        {
+            if (id != roomViewModel.Id)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var room = await _context.Rooms.FindAsync(id);
+
+                    if (room == null)
+                    {
+                        return NotFound();
+                    }
+
+                    string item = room.ImageUrl;
+                    var uniqueFileName = "";
+                    var filePath = "";
+
+                    // Kiểm tra và lưu ảnh đại diện mới nếu có
+                    if (roomViewModel.ImageUrl != null && roomViewModel.ImageUrl.Length > 0)
+                    {
+                        var uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "img");
+
+                        // Tạo tên file độc nhất để tránh trùng lặp
+                        uniqueFileName = Guid.NewGuid().ToString() + "_" + roomViewModel.ImageUrl.FileName;
+                        filePath = Path.Combine(uploadsFolder, uniqueFileName);
+
+                        // Lưu file vào thư mục
+                        using (var stream = new FileStream(filePath, FileMode.Create))
+                        {
+                            await roomViewModel.ImageUrl.CopyToAsync(stream);
+                        }
+                        room.ImageUrl = "img/" + uniqueFileName;
+                    }
+                    else
+                    {
+
+                        room.ImageUrl = item;
+                    }
+                    room.Id = roomViewModel.Id;
+                    room.RoomNumber = roomViewModel.RoomNumber;
+                    room.RoomType = roomViewModel.RoomType;
+                    room.Price = roomViewModel.Price;
+                    room.Description = roomViewModel.Description;
+                    room.Bath = roomViewModel.Bath;
+                    room.Area = roomViewModel.Area;
+                    room.Bed = roomViewModel.Bed;
+                    room.Stars = roomViewModel.Stars;
+                    room.FloorNumber = roomViewModel.FloorNumber;
+                    room.Status = roomViewModel.Status;
+                    room.Wifi = roomViewModel.Wifi;
+
+                    _context.Update(room);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!RoomExists(roomViewModel.Id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(EmployeeIndex));
+            }
+            return View(roomViewModel);
+        }
+        [HttpGet]
         [Route("RoomList")]
         public async Task<IActionResult> RoomList()
         {

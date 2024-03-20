@@ -15,6 +15,7 @@ namespace BaiTapLonDuAnMau.Models
         [Required]
         [StringLength(20)]
         public string PhoneNumber { get; set; }
+        public string? Email { get; set; }
         [Required]
         [ForeignKey(nameof(Room))]
         public int RoomId { get; set; }

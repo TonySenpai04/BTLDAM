@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "JIQTR0pEeilaSpShJC18dBpLRe2sZD3Kuw7Ce+dxkm0=",
+  "Hash": "nFCa1XB8X3Fp+YEwI1FxP1ZGXZ9CSmY+8UTCB3g5N2s=",
   "Source": "BaiTapLonDuAnMau",
   "BasePath": "_content/BaiTapLonDuAnMau",
   "Mode": "Default",
@@ -66,6 +66,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\bootstrap.min.css"
+    },
+    {
+      "Identity": "C:\\Users\\DƯƠNG VĂN SỰ\\source\\repos\\BaiTapLonDuAnMau\\BaiTapLonDuAnMau\\wwwroot\\css\\login.css",
+      "SourceId": "BaiTapLonDuAnMau",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\DƯƠNG VĂN SỰ\\source\\repos\\BaiTapLonDuAnMau\\BaiTapLonDuAnMau\\wwwroot\\",
+      "BasePath": "_content/BaiTapLonDuAnMau",
+      "RelativePath": "css/login.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\login.css"
     },
     {
       "Identity": "C:\\Users\\DƯƠNG VĂN SỰ\\source\\repos\\BaiTapLonDuAnMau\\BaiTapLonDuAnMau\\wwwroot\\css\\site.css",
@@ -559,6 +576,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\video.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\DƯƠNG VĂN SỰ\\source\\repos\\BaiTapLonDuAnMau\\BaiTapLonDuAnMau\\wwwroot\\js\\login.js",
+      "SourceId": "BaiTapLonDuAnMau",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\DƯƠNG VĂN SỰ\\source\\repos\\BaiTapLonDuAnMau\\BaiTapLonDuAnMau\\wwwroot\\",
+      "BasePath": "_content/BaiTapLonDuAnMau",
+      "RelativePath": "js/login.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\login.js"
     },
     {
       "Identity": "C:\\Users\\DƯƠNG VĂN SỰ\\source\\repos\\BaiTapLonDuAnMau\\BaiTapLonDuAnMau\\wwwroot\\js\\main.js",

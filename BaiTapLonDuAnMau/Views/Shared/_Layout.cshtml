@@ -95,6 +95,37 @@
                                     </div>
                                 </div>
                                 <a asp-controller="Home" asp-action="Contact" class="nav-item nav-link">Contact</a>
+                              
+                            </div>
+                            
+                            <div class="nav-item">
+                                @if (string.IsNullOrEmpty(ViewBag.UserName))
+                                {
+                                    <a asp-controller="Account" asp-action="Login" class="nav-link">Login</a>
+                                }
+                                else
+                                {
+                                    <span>Hello:</span>
+                                    @if (string.Compare(ViewBag.IsEmployee, "true", true) == 0)
+                                    {
+            
+                                        <div class="nav-item dropdown">
+                                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">@ViewBag.UserName</a>
+                                            <div class="dropdown-menu rounded-0 m-0">
+                                                <a asp-controller="Booking" asp-action="Index" class="dropdown-item">Quản lý đặt phòng</a>
+                                                <a asp-controller="Room" asp-action="Index" class="dropdown-item">Quản lý trạng thái đặt phòng</a>
+                                                <a asp-controller="Service" asp-action="Index" class="dropdown-item">Quản lý thanh toán </a>
+                                                <a asp-controller="Service" asp-action="Index" class="dropdown-item">Quản lý sử dụng dịch vụ</a>
+                                                <a asp-controller="Account" asp-action="Index" class="dropdown-item">Quên mật khẩu</a>
+                                                <a asp-controller="Account" asp-action="Index" class="dropdown-item">Lấy lại  mật khẩu</a>
+
+
+                                            </div>
+                                        </div>
+                                    }
+                                }
+
+                                
                             </div>
                             @* <a href="https://htmlcodex.com/hotel-html-template-pro" class="btn btn-primary rounded-0 py-4 px-md-5 d-none d-lg-block">Premium Version<i class="fa fa-arrow-right ms-3"></i></a>*@
                         </div>

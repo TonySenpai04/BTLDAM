@@ -23,7 +23,7 @@ namespace BaiTapLonDuAnMau.Controllers
         [Route("Team")]
         public async Task<IActionResult> Team()
         {
-            var staffs = await _context.Staffs.ToListAsync();
+            var staffs = await _context.Staffs.Where(s => s.Position != "Employee").ToListAsync();
             ViewBag.Staffs = staffs;
             return View();
         }
@@ -113,7 +113,9 @@ namespace BaiTapLonDuAnMau.Controllers
                     Position = staffViewModel.Position,
                     FbLink = staffViewModel.FbLink,
                     InstagramLink = staffViewModel.InstagramLink,
-                    TwLink = staffViewModel.TwLink
+                    TwLink = staffViewModel.TwLink,
+                    Email=staffViewModel.Email,
+                    PhoneNumber=staffViewModel.PhoneNumber,
                 };
                 _context.Add(staff);
                 await _context.SaveChangesAsync();
@@ -164,7 +166,9 @@ namespace BaiTapLonDuAnMau.Controllers
                 Position = staff.Position,
                 FbLink = staff.FbLink,
                 InstagramLink = staff.InstagramLink,
-                TwLink = staff.TwLink
+                TwLink = staff.TwLink,
+                Email=staff.Email,
+                PhoneNumber=staff.PhoneNumber,  
             };
             return View(staffViewModel);
         }
@@ -223,6 +227,8 @@ namespace BaiTapLonDuAnMau.Controllers
                     staff.FbLink = staffViewModel.FbLink;
                      staff.InstagramLink = staffViewModel.InstagramLink;
                     staff.TwLink = staffViewModel.TwLink;
+                    staff.Email = staffViewModel.Email;
+                    staff.PhoneNumber=staffViewModel.PhoneNumber;
                     _context.Update(staff);
                     await _context.SaveChangesAsync();
                 }
