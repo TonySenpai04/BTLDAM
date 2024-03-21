@@ -3,9 +3,7 @@
 @{
     ViewData["Title"] = "Details";
 }
-@{
-   
-}
+
 <h1>Details</h1>
 
 <div>
@@ -59,6 +57,12 @@
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Stars)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CountRate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CountRate)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Status)

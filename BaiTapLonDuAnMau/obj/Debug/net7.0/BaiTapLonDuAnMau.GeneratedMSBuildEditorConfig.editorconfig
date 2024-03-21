@@ -44,6 +44,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va2luZ1xCb29raW5nLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/Booking/Confirm.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va2luZ1xDb25maXJtLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/Booking/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va2luZ1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -82,6 +86,26 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/Home/testimonial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVx0ZXN0aW1vbmlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/HotelInfo/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG90ZWxJbmZvXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/HotelInfo/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG90ZWxJbmZvXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/HotelInfo/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG90ZWxJbmZvXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/HotelInfo/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG90ZWxJbmZvXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/HotelInfo/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG90ZWxJbmZvXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/Room/Create.cshtml]

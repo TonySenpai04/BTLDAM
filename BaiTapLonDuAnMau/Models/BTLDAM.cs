@@ -11,13 +11,15 @@ namespace BaiTapLonDuAnMau.Models
         public DbSet<Staff> Staffs { get; set; }
         public DbSet<Service> Services { get; set; }
         public DbSet<Account> Accounts { get; set; }
+        public DbSet<HotelInfo> HotelInfoés { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Room>().ToTable("room");
+            modelBuilder.Entity<Room>().ToTable("Room");
             modelBuilder.Entity<Booking>().ToTable("Booking");
             modelBuilder.Entity<Staff>().ToTable("Staff");
             modelBuilder.Entity<Service>().ToTable("Service");
             modelBuilder.Entity<Account>().ToTable("Account");
+            modelBuilder.Entity<HotelInfo>().ToTable("HotelInfo");
             // base.OnModelCreating(modelBuilder);
         }
         public DbSet<BaiTapLonDuAnMau.Models.Room> Room { get; set; } = default!;
@@ -25,6 +27,7 @@ namespace BaiTapLonDuAnMau.Models
         public DbSet<BaiTapLonDuAnMau.Models.Staff> Staff { get; set; } = default!;
         public DbSet<BaiTapLonDuAnMau.Models.Service> Service { get; set; } = default!;
         public DbSet<BaiTapLonDuAnMau.Models.Account> Account { get; set; } = default!;
+        public DbSet<BaiTapLonDuAnMau.Models.HotelInfo> HotelInfo { get; set; } = default!;
 
     }
 }

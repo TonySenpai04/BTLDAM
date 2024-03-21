@@ -33,7 +33,12 @@ namespace BaiTapLonDuAnMau.Models
         public int NumChildren { get; set; }
 
         public string? SpecialRequests { get; set; }
-
+        public string? Status { get; set; }
         public Room? Room { get; set; }
+        
+        [ForeignKey(nameof(Staff))]
+        public int? StaffId { get; set; }
+
+        public Staff? Staff { get; set; }
     }
 }

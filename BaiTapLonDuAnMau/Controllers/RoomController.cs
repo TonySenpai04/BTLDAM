@@ -6,10 +6,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BaiTapLonDuAnMau.Models;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using System.Collections;
-using System.IO;
 
 namespace BaiTapLonDuAnMau.Controllers
 {
@@ -27,9 +23,9 @@ namespace BaiTapLonDuAnMau.Controllers
         // GET: Room
         public async Task<IActionResult> Index()
         {
-              return _context.Rooms != null ? 
-                          View(await _context.Rooms.ToListAsync()) :
-                          Problem("Entity set 'BTLDAM.Rooms'  is null.");
+            return _context.Rooms != null ?
+                        View(await _context.Rooms.ToListAsync()) :
+                        Problem("Entity set 'BTLDAM.Rooms'  is null.");
         }
         [HttpGet]
         public async Task<IActionResult> EmployeeIndex()
@@ -81,6 +77,7 @@ namespace BaiTapLonDuAnMau.Controllers
                 Bed = room.Bed,
                 Description = room.Description,
                 Stars = room.Stars,
+                CountRate = room.CountRate,
                 FloorNumber = room.FloorNumber,
                 Status = room.Status,
                 Wifi = room.Wifi,
@@ -98,7 +95,7 @@ namespace BaiTapLonDuAnMau.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> EmployeeEditEdit(int id, RoomViewModel roomViewModel)
+        public async Task<IActionResult> EmployeeEdit(int id, RoomViewModel roomViewModel)
         {
             if (id != roomViewModel.Id)
             {
@@ -150,6 +147,7 @@ namespace BaiTapLonDuAnMau.Controllers
                     room.Area = roomViewModel.Area;
                     room.Bed = roomViewModel.Bed;
                     room.Stars = roomViewModel.Stars;
+                    room.CountRate = roomViewModel.CountRate;
                     room.FloorNumber = roomViewModel.FloorNumber;
                     room.Status = roomViewModel.Status;
                     room.Wifi = roomViewModel.Wifi;
@@ -220,7 +218,7 @@ namespace BaiTapLonDuAnMau.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create( RoomViewModel roomViewModel)
+        public async Task<IActionResult> Create(RoomViewModel roomViewModel)
         {
             if (ModelState.IsValid)
             {
@@ -250,18 +248,19 @@ namespace BaiTapLonDuAnMau.Controllers
                 Room room = new Room
                 {
                     Id = roomViewModel.Id,
-                    RoomNumber=roomViewModel.RoomNumber,
-                    RoomType=roomViewModel.RoomType,
-                    Price=roomViewModel.Price,
-                    Bath=roomViewModel.Bath,
-                    Area=roomViewModel.Area,
-                    Bed= roomViewModel.Bed,
-                    Description=roomViewModel.Description,
-                    Stars=roomViewModel.Stars,
-                    FloorNumber=roomViewModel.FloorNumber,
-                    Status=roomViewModel.Status,
-                    Wifi=roomViewModel.Wifi,
-                    ImageUrl= file
+                    RoomNumber = roomViewModel.RoomNumber,
+                    RoomType = roomViewModel.RoomType,
+                    Price = roomViewModel.Price,
+                    Bath = roomViewModel.Bath,
+                    Area = roomViewModel.Area,
+                    Bed = roomViewModel.Bed,
+                    Description = roomViewModel.Description,
+                    Stars = roomViewModel.Stars,
+                    CountRate = roomViewModel.CountRate,
+                    FloorNumber = roomViewModel.FloorNumber,
+                    Status = roomViewModel.Status,
+                    Wifi = roomViewModel.Wifi,
+                    ImageUrl = file
 
 
 
@@ -318,15 +317,16 @@ namespace BaiTapLonDuAnMau.Controllers
                 Bed = room.Bed,
                 Description = room.Description,
                 Stars = room.Stars,
+                CountRate = room.CountRate,
                 FloorNumber = room.FloorNumber,
                 Status = room.Status,
                 Wifi = room.Wifi,
                 ImageUrl = formFile
-               
+
 
             };
 
-            
+
             return View(viewModel);
         }
 
@@ -356,7 +356,7 @@ namespace BaiTapLonDuAnMau.Controllers
                     string item = room.ImageUrl;
                     var uniqueFileName = "";
                     var filePath = "";
-            
+
                     // Kiểm tra và lưu ảnh đại diện mới nếu có
                     if (roomViewModel.ImageUrl != null && roomViewModel.ImageUrl.Length > 0)
                     {
@@ -371,7 +371,7 @@ namespace BaiTapLonDuAnMau.Controllers
                         {
                             await roomViewModel.ImageUrl.CopyToAsync(stream);
                         }
-                        room.ImageUrl ="img/"+ uniqueFileName;
+                        room.ImageUrl = "img/" + uniqueFileName;
                     }
                     else
                     {
@@ -381,12 +381,13 @@ namespace BaiTapLonDuAnMau.Controllers
                     room.Id = roomViewModel.Id;
                     room.RoomNumber = roomViewModel.RoomNumber;
                     room.RoomType = roomViewModel.RoomType;
-                    room.Price= roomViewModel.Price; 
+                    room.Price = roomViewModel.Price;
                     room.Description = roomViewModel.Description;
                     room.Bath = roomViewModel.Bath;
                     room.Area = roomViewModel.Area;
                     room.Bed = roomViewModel.Bed;
                     room.Stars = roomViewModel.Stars;
+                    room.CountRate = roomViewModel.CountRate;
                     room.FloorNumber = roomViewModel.FloorNumber;
                     room.Status = roomViewModel.Status;
                     room.Wifi = roomViewModel.Wifi;
@@ -442,14 +443,15 @@ namespace BaiTapLonDuAnMau.Controllers
             {
                 _context.Rooms.Remove(room);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool RoomExists(int id)
         {
-          return (_context.Rooms?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.Rooms?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }
+

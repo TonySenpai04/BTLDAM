@@ -51,17 +51,17 @@ namespace BaiTapLonDuAnMau.Controllers
                     {
                         if (userLogin.Type == 0)
                         {
-                            HttpContext.Session.SetString("IsAdmin", "true");
+                            HttpContext.Session.SetString("IsLogin", "0");
 
                         }
                         else if(userLogin.Type == 1)
                         {
-                            HttpContext.Session.SetString("IsManager", "true");
+                            HttpContext.Session.SetString("IsLogin", "1");
 
                         }
                         else
                         {
-                            HttpContext.Session.SetString("IsEmployee", "true");
+                            HttpContext.Session.SetString("IsLogin", "2");
                         }
                         CurrentUser = userLogin.Username;
 

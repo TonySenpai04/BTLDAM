@@ -9,7 +9,7 @@ using BaiTapLonDuAnMau.Models;
 
 namespace BaiTapLonDuAnMau.Controllers
 {
-    public class BookingController : Controller
+    public class BookingController : BaseController
     {
         private readonly BTLDAM _context;
 
@@ -19,12 +19,12 @@ namespace BaiTapLonDuAnMau.Controllers
         }
         [HttpGet]
         [Route("BookingRoom")]
-        
+
         public async Task<IActionResult> BookingView()
         {
             var rooms = await _context.Rooms.ToListAsync();
             ViewBag.Rooms = rooms;
-            
+
             return View("Booking");
 
         }
@@ -42,12 +42,12 @@ namespace BaiTapLonDuAnMau.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> BookNow(string fullName, string phoneNumber,string email,
+        public async Task<IActionResult> BookNow(string fullName, string phoneNumber, string email,
             DateTime checkIn, DateTime checkOut, int numAdults, int numChildren, int roomId, string specialRequests)
         {
             try
             {
-              
+
                 // Create a new Booking object
                 var booking = new Booking
                 {
@@ -58,20 +58,22 @@ namespace BaiTapLonDuAnMau.Controllers
                     CheckOut = checkOut,
                     NumAdults = numAdults,
                     NumChildren = numChildren,
-                    
+                    Status = "Chờ duyệt",
                     SpecialRequests = specialRequests,
-                    Email=email,
+                    Email = email,
+                    StaffId=null,
                 };
 
                 // Add the new Booking to the context
                 _context.Bookings.Add(booking);
                 var room = await _context.Rooms.FindAsync(roomId);
-                if(room!=null) {
-                    room.Status = "Đã có người thuê";
+                if (room != null)
+                {
+                    room.Status = "Đã đặt-Chờ xác nhận";
                 }
                 // Update the status of the room
-                
-                
+
+
 
                 await _context.SaveChangesAsync();
 
@@ -79,13 +81,13 @@ namespace BaiTapLonDuAnMau.Controllers
             }
             catch (Exception ex)
             {
-                
+
                 return BadRequest($"Booking failed: {ex.Message}");
             }
         }
 
         [HttpPost]
-        public async Task< ActionResult> CancelBooking(string roomNumber, string phoneNumber)
+        public async Task<ActionResult> CancelBooking(string roomNumber, string phoneNumber)
         {
             // Kiểm tra xem số phòng và số điện thoại có tồn tại và khớp với dữ liệu trong cơ sở dữ liệu không
             var booking = _context.Bookings.FirstOrDefault(b => b.Room.RoomNumber == roomNumber && b.PhoneNumber == phoneNumber);
@@ -112,6 +114,55 @@ namespace BaiTapLonDuAnMau.Controllers
                 return Json(new { success = false, message = "Could not cancel booking. Room number or phone number is incorrect." });
             }
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Confirm(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var booking = await _context.Bookings.FindAsync(id);
+
+            if (booking == null)
+            {
+                return NotFound();
+            }
+
+            try
+            {
+                booking.Status = "Đã duyệt";
+
+                // Xác định nhân viên thực hiện xác nhận
+                var userLogin = await _context.Accounts.FirstOrDefaultAsync(m => m.Username == CurrentUser);
+                if (userLogin != null)
+                {
+                    var staff = await _context.Staff.FirstOrDefaultAsync(m => m.Id == userLogin.StaffId);
+                    if (staff != null)
+                    {
+                        booking.StaffId = staff.Id;
+                    }
+                }
+
+                _context.Update(booking);
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!BookingExists(booking.Id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return RedirectToAction(nameof(Index));
+        }
+
         // GET: Booking
         public async Task<IActionResult> Index()
         {
@@ -129,6 +180,7 @@ namespace BaiTapLonDuAnMau.Controllers
 
             var booking = await _context.Bookings
                 .Include(b => b.Room)
+                .Include(b => b.Staff)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (booking == null)
             {
@@ -142,6 +194,7 @@ namespace BaiTapLonDuAnMau.Controllers
         public IActionResult Create()
         {
             ViewData["RoomId"] = new SelectList(_context.Rooms, "Id", "RoomNumber");
+            ViewData["StaffId"] = new SelectList(_context.Staffs, "Id", "FullName");
             return View();
         }
 
@@ -150,7 +203,7 @@ namespace BaiTapLonDuAnMau.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,FullName,PhoneNumber,RoomId,CheckIn,CheckOut,NumAdults,NumChildren,SpecialRequests")] Booking booking)
+        public async Task<IActionResult> Create([Bind("Id,FullName,PhoneNumber,Email,RoomId,CheckIn,CheckOut,NumAdults,NumChildren,SpecialRequests,Status,StaffId")] Booking booking)
         {
             if (ModelState.IsValid)
             {
@@ -159,6 +212,7 @@ namespace BaiTapLonDuAnMau.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["RoomId"] = new SelectList(_context.Rooms, "Id", "RoomNumber", booking.RoomId);
+            ViewData["StaffId"] = new SelectList(_context.Staffs, "Id", "FullName", booking.StaffId);
             return View(booking);
         }
 
@@ -176,6 +230,7 @@ namespace BaiTapLonDuAnMau.Controllers
                 return NotFound();
             }
             ViewData["RoomId"] = new SelectList(_context.Rooms, "Id", "RoomNumber", booking.RoomId);
+            ViewData["StaffId"] = new SelectList(_context.Staffs, "Id", "FullName", booking.StaffId);
             return View(booking);
         }
 
@@ -184,7 +239,7 @@ namespace BaiTapLonDuAnMau.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,FullName,PhoneNumber,RoomId,CheckIn,CheckOut,NumAdults,NumChildren,SpecialRequests")] Booking booking)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,FullName,PhoneNumber,Email,RoomId,CheckIn,CheckOut,NumAdults,NumChildren,SpecialRequests,Status,StaffId")] Booking booking)
         {
             if (id != booking.Id)
             {
@@ -212,6 +267,7 @@ namespace BaiTapLonDuAnMau.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["RoomId"] = new SelectList(_context.Rooms, "Id", "RoomNumber", booking.RoomId);
+            ViewData["StaffId"] = new SelectList(_context.Staffs, "Id", "FullName", booking.StaffId);
             return View(booking);
         }
 
@@ -225,6 +281,7 @@ namespace BaiTapLonDuAnMau.Controllers
 
             var booking = await _context.Bookings
                 .Include(b => b.Room)
+                .Include(b => b.Staff)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (booking == null)
             {
@@ -244,12 +301,6 @@ namespace BaiTapLonDuAnMau.Controllers
                 return Problem("Entity set 'BTLDAM.Bookings'  is null.");
             }
             var booking = await _context.Bookings.FindAsync(id);
-            var room = await _context.Rooms.FindAsync(booking.RoomId);
-            if (room != null)
-            {
-                
-                room.Status = "Trống";
-            }
             if (booking != null)
             {
                 _context.Bookings.Remove(booking);

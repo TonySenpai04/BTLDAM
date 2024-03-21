@@ -37,8 +37,12 @@
                 @Html.DisplayNameFor(model => model.SpecialRequests)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Room)
             </th>
+            
             <th></th>
         </tr>
     </thead>
@@ -70,14 +74,42 @@
                 @Html.DisplayFor(modelItem => item.SpecialRequests)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.Room.RoomNumber)
             </td>
+            
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-action="Delete" asp-route-id="@item.Id">Refuse</a>|
+                    <form method="post" asp-controller="Booking" asp-action="Confirm" asp-route-id="@item.Id" class="confirm-form">
+                        <button type="submit">Confirm</button>
+                    </form>
             </td>
         </tr>
 }
     </tbody>
 </table>
+<script>
+    $(document).ready(function () {
+        $('.confirm-form').on('submit', function (e) {
+            e.preventDefault(); // Ngăn chặn form gửi đi một cách tự động
+
+            var form = $(this);
+            var url = form.attr('action');
+
+            $.post(url, form.serialize())
+                .done(function (data) {
+                    // Xử lý khi xác nhận thành công
+                    console.log("Đã xác nhận thành công");
+                    // Có thể thực hiện chuyển hướng hoặc cập nhật giao diện người dùng ở đây
+                })
+                .fail(function () {
+                    // Xử lý khi xác nhận thất bại
+                    console.log("Xác nhận thất bại");
+                });
+        });
+    });
+</script>

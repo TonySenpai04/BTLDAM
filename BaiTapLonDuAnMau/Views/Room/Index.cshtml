@@ -3,9 +3,7 @@
 @{
     ViewData["Title"] = "Index";
 }
-@{
-    
-}
+
 <h1>Index</h1>
 
 <p>
@@ -37,6 +35,9 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Stars)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CountRate)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Status)
@@ -81,11 +82,14 @@
                 @Html.DisplayFor(modelItem => item.Stars)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Status)
+                @Html.DisplayFor(modelItem => item.CountRate)
             </td>
             <td>
-                    <img src="~/@Html.DisplayFor(modelItem => item.ImageUrl)" style="width:100px;height:100px" />
+                @Html.DisplayFor(modelItem => item.Status)
             </td>
+                <td>
+                    <img src="~/@Html.DisplayFor(modelItem => item.ImageUrl)" style="width:100px;height:100px" />
+                </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Area)
             </td>

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.DataProtection.KeyManagement;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BaiTapLonDuAnMau.Models
 {
@@ -24,18 +25,12 @@ namespace BaiTapLonDuAnMau.Models
         public int Wifi { get; set; }
         public string? Description { get; set; }
         public double Stars { get; set; }
-        public string Status { get; set; }
+        public double? CountRate { get; set; }
+        public string? Status { get; set; }
         public string? ImageUrl { get; set; }
         public double Area { get; set; }
         public int FloorNumber { get; set; }
+       
 
-        //        ID int primary key identity,
-        //RoomNumber nvarchar(20),
-        //RoomType nvarchar(20),
-        //Price decimal,
-        //Bed int,
-        //Bath int,
-        //Wifi int,
-        //Description nvarchar(250),
     }
 }

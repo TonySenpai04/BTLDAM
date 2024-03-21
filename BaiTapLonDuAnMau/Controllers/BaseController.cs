@@ -37,12 +37,8 @@ namespace BaiTapLonDuAnMau.Controllers
         public override void OnActionExecuting(ActionExecutingContext context)
         {
             base.OnActionExecuting(context);
-            var isAdmin = HttpContext.Session.GetString("IsAdmin");
-            var isManager = HttpContext.Session.GetString("IsManager");
-            var isEmployee = HttpContext.Session.GetString("IsEmployee");
-            ViewBag.IsAdmin = isAdmin;
-            ViewBag.IsManager = isManager;
-            ViewBag.IsEmployee = isEmployee;
+            var isLogin = HttpContext.Session.GetString("IsLogin");
+            ViewBag.IsLogin = isLogin;
             ViewBag.UserName = CurrentUser;
             
         }
