@@ -103,6 +103,78 @@ namespace BaiTapLonDuAnMau.Controllers
             return View(account);
 
         }
+        public async Task<IActionResult> ChangePassword(int ?id)
+        {
+
+            if (!IsLogin)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+            if(id != null)
+            {
+                var user = await _context.Accounts.FirstOrDefaultAsync(m => m.Id == id);
+
+                return View("ChangePassword",user);
+            }
+            return View("ChangePassword");
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ChangePassword(int? id, string oldPassword, string newPassword, string confirmNewPassword)
+        {
+            if (ModelState.IsValid)
+            {
+                Account userLogin = null;
+                var userName = HttpContext.Session.GetString("USER_NAME");
+                if (id != null)
+                {
+                    userLogin = await _context.Accounts.FirstOrDefaultAsync(m => m.Id == id);
+                }
+                else
+                {
+
+                    userLogin = await _context.Accounts.FirstOrDefaultAsync(m => m.Username == userName);
+                }
+                if (userLogin == null )
+                {
+                    
+                        ModelState.AddModelError("", "Thông tin tài khoản mật khẩu không chính xác!");
+                        return View();
+                    
+
+                }
+                else
+                {
+                    SHA256 hasMethod = SHA256.Create();
+                    if (Util.Cryptography.VerifyHash(hasMethod, oldPassword, userLogin.Password))
+                    {
+                        if (newPassword != confirmNewPassword)
+                        {
+                            ModelState.AddModelError("", "Mật khẩu mới không trùng khớp!");
+                            return View();
+                        }
+                        else
+                        {
+                            newPassword = Util.Cryptography.GetHash(hasMethod, newPassword);
+                            userLogin.Password = newPassword;
+                            _context.Update(userLogin);
+                            await _context.SaveChangesAsync();
+                            return RedirectToAction("Index", "Home");
+                        }
+
+
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Mật khẩu không chính xác!");
+                        return View();
+
+                    }
+
+                }
+            }
+            return RedirectToAction("Index", "Home");
+        }
         public IActionResult LogOut()
         {
             CurrentUser = "";

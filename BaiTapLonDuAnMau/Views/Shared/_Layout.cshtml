@@ -116,12 +116,37 @@
                                                 <a asp-controller="Room" asp-action="EmployeeIndex" class="dropdown-item">Quản lý trạng thái đặt phòng</a>
                                                 <a asp-controller="Service" asp-action="Index" class="dropdown-item">Quản lý thanh toán </a>
                                                 <a asp-controller="Service" asp-action="Index" class="dropdown-item">Quản lý sử dụng dịch vụ</a>
-                                                <a asp-controller="Account" asp-action="Index" class="dropdown-item">Quên mật khẩu</a>
-                                                <a asp-controller="Account" asp-action="Index" class="dropdown-item">Lấy lại  mật khẩu</a>
-
-
+                                                <a asp-controller="Account" asp-action="ChangePassword" class="dropdown-item">Quên mật khẩu</a>
+                                                <a asp-controller="Account" asp-action="Logout" class="dropdown-item">Đăng xuất </a>
                                             </div>
                                         </div>
+                                    }
+                                    else if (string.Compare(ViewBag.IsLogin, "0", true) == 0)
+                                    {
+                                        <div class="nav-item dropdown">
+                                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">@ViewBag.UserName</a>
+                                        <div class="dropdown-menu rounded-0 m-0">
+                                            <a asp-controller="Account" asp-action="Index" class="dropdown-item">Quản lý tài khoản</a>
+                                            <a asp-controller="Booking" asp-action="Index" class="dropdown-item">Quản lý hệ thống</a>
+                                                <a asp-controller="Account" asp-action="ChangePassword" class="dropdown-item">Đổi mật khẩu </a>
+                                            <a asp-controller="Account" asp-action="Logout" class="dropdown-item">Đăng xuất </a>
+
+                                        </div>
+                                        </div>
+                                    } else
+                                    {
+                                         <div class="nav-item dropdown">
+                                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">@ViewBag.UserName</a>
+                                        <div class="dropdown-menu rounded-0 m-0">
+                                            <a asp-controller="Room" asp-action="Index" class="dropdown-item">Quản lý phòng</a>
+                                            <a asp-controller="Staff" asp-action="Index" class="dropdown-item">Quản lý nhân viên </a>
+                                            <a asp-controller="Service" asp-action="Index" class="dropdown-item">Quản lý dịch vụ </a>
+                                            <a asp-controller="HotelInfo" asp-action="Index" class="dropdown-item">Quản lý thông tin khách sạn </a>
+                                            <a asp-controller="Booking" asp-action="Index" class="dropdown-item">Thống kê </a>
+                                            <a asp-controller="Account" asp-action="ChangePassword" class="dropdown-item">Đổi mật khẩu </a>
+                                            <a asp-controller="Account" asp-action="Logout" class="dropdown-item">Đăng xuất </a>
+                                         </div>
+                                         </div>
                                     }
                                 }
 

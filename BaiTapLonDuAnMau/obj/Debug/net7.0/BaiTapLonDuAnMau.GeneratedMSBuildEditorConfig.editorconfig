@@ -16,6 +16,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\DƯƠNG VĂN SỰ\source\repos\BaiTapLonDuAnMau\BaiTapLonDuAnMau
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/Account/ChangePassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxDaGFuZ2VQYXNzd29yZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/Account/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
