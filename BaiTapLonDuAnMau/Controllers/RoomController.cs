@@ -9,7 +9,7 @@ using BaiTapLonDuAnMau.Models;
 
 namespace BaiTapLonDuAnMau.Controllers
 {
-    public class RoomController : Controller
+    public class RoomController : BaseController
     {
         private readonly BTLDAM _context;
         private readonly IWebHostEnvironment _webHostEnvironment;
@@ -23,16 +23,32 @@ namespace BaiTapLonDuAnMau.Controllers
         // GET: Room
         public async Task<IActionResult> Index()
         {
-            return _context.Rooms != null ?
-                        View(await _context.Rooms.ToListAsync()) :
-                        Problem("Entity set 'BTLDAM.Rooms'  is null.");
+            if (IsLogin && string.Compare(ViewBag.IsLogin, "1", true) == 0)
+            {
+                return _context.Rooms != null ?
+                    View(await _context.Rooms.ToListAsync()) :
+                    Problem("Entity set 'BTLDAM.Rooms'  is null.");
+            }
+            else
+            {
+                return RedirectToAction("Login", "Account");
+            }
+        
         }
         [HttpGet]
         public async Task<IActionResult> EmployeeIndex()
         {
-            return _context.Rooms != null ?
+            if (IsLogin )
+            {
+                return _context.Rooms != null ?
                         View(await _context.Rooms.ToListAsync()) :
                         Problem("Entity set 'BTLDAM.Rooms'  is null.");
+            }
+            else
+            {
+                return RedirectToAction("Login", "Account");
+            }
+           
         }
         public async Task<IActionResult> EmployeeEdit(int? id)
         {

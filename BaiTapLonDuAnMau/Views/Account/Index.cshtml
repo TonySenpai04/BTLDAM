@@ -53,10 +53,81 @@
                 <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>|
                 <a href="/Account/ChangePassword?ID=@item.Id">Change Password</a>|
-                <a href="/Account/Lock?ID=@item.Id">Lock/Unlock</a>
+                    <form method="post" asp-controller="Account" asp-action="LockAcccount" asp-route-id="@item.Id" class="lock-account">
+                        <button type="submit">Lock Account</button>
+                    </form>
 
+                    <form method="post" asp-controller="Account" asp-action="UnlockAcccount" asp-route-id="@item.Id" class="unlock-account">
+                        <button type="submit">Unlock Account</button>
+                    </form>
+                    <form method="post" asp-controller="Account" asp-action="ResetPassword" asp-route-id="@item.Id" class="reset-password">
+                        <button type="submit">Reset Password</button>
+                    </form>
             </td>
         </tr>
 }
     </tbody>
 </table>
+<script>
+    $(document).ready(function () {
+        $('.lock-account').on('submit', function (e) {
+            e.preventDefault(); // Ngăn chặn form gửi đi một cách tự động
+
+            var form = $(this);
+            var url = form.attr('action');
+
+            $.post(url, form.serialize())
+                .done(function (data) {
+                    // Xử lý khi xác nhận thành công
+                    console.log("Đã xác nhận thành công");
+                    // Có thể thực hiện chuyển hướng hoặc cập nhật giao diện người dùng ở đây
+                })
+                .fail(function () {
+                    // Xử lý khi xác nhận thất bại
+                    console.log("Xác nhận thất bại");
+                });
+        });
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $('.unlock-account').on('submit', function (e) {
+            e.preventDefault(); // Ngăn chặn form gửi đi một cách tự động
+
+            var form = $(this);
+            var url = form.attr('action');
+
+            $.post(url, form.serialize())
+                .done(function (data) {
+                    // Xử lý khi xác nhận thành công
+                    console.log("Đã xác nhận thành công");
+                    // Có thể thực hiện chuyển hướng hoặc cập nhật giao diện người dùng ở đây
+                })
+                .fail(function () {
+                    // Xử lý khi xác nhận thất bại
+                    console.log("Xác nhận thất bại");
+                });
+        });
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $('.reset-password').on('submit', function (e) {
+            e.preventDefault(); // Ngăn chặn form gửi đi một cách tự động
+
+            var form = $(this);
+            var url = form.attr('action');
+
+            $.post(url, form.serialize())
+                .done(function (data) {
+                    // Xử lý khi xác nhận thành công
+                    console.log("Đã xác nhận thành công");
+                    // Có thể thực hiện chuyển hướng hoặc cập nhật giao diện người dùng ở đây
+                })
+                .fail(function () {
+                    // Xử lý khi xác nhận thất bại
+                    console.log("Xác nhận thất bại");
+                });
+        });
+    });
+</script>

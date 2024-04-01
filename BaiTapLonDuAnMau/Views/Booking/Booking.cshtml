@@ -121,6 +121,19 @@
                                             <label for="message">Special Request</label>
                                         </div>
                                     </div>
+                                <div class="col-12">
+                                    @foreach (var service in ViewBag.Services)
+                                    {
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="service_@service.ID" name="selectedServices" value="@service.ID">
+                                            <label class="form-check-label" for="service_@service.ID">
+                                                @service.ServiceName - $@service.Price
+                                            </label>
+                                        </div>
+                                    }
+                                </div>
+
+
                                     <div class="col-12">
                                         <button class="btn btn-primary w-100 py-3" type="submit">Book Now</button>
                                     <span id="bookingResult" class="mt-3 text-center"></span>
@@ -201,10 +214,14 @@
                     method: form.method,
                     body: formData
                 })
-                    .then(response => response.text())
+                    .then(response => response.json())
                     .then(data => {
-                        var bookingResult = document.getElementById('bookingResult');
-                        bookingResult.textContent = data;
+                        if (data.success) {
+                            // Nếu xử lý thành công, chuyển hướng trang
+                            window.location.href = data.redirectUrl;
+                        } else {
+                            throw new Error('Request failed');
+                        }
                     })
                     .catch(error => {
                         console.error('Error:', error);
@@ -213,6 +230,7 @@
                     });
             });
         });
+
     </script>
     <script>
         function showBookingForm() {

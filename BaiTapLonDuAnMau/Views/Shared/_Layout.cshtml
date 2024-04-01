@@ -21,6 +21,7 @@
 
     <!-- Libraries Stylesheet -->
     <link href="~/lib/animate/animate.min.css" rel="stylesheet">
+  
     <link href="~/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
     <link href="~/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
 @*    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">*@
@@ -105,7 +106,7 @@
                                 }
                                 else
                                 {
-                                    <span>Hello:</span>
+                                   // <span>Hello:</span>
                                     @if (string.Compare(ViewBag.IsLogin,"2", true) == 0)
                                     {
             
@@ -114,8 +115,8 @@
                                             <div class="dropdown-menu rounded-0 m-0">
                                                 <a asp-controller="Booking" asp-action="Index" class="dropdown-item">Quản lý đặt phòng</a>
                                                 <a asp-controller="Room" asp-action="EmployeeIndex" class="dropdown-item">Quản lý trạng thái đặt phòng</a>
-                                                <a asp-controller="Service" asp-action="Index" class="dropdown-item">Quản lý thanh toán </a>
-                                                <a asp-controller="Service" asp-action="Index" class="dropdown-item">Quản lý sử dụng dịch vụ</a>
+                                                <a asp-controller="Payment" asp-action="Index" class="dropdown-item">Quản lý thanh toán </a>
+                                                <a asp-controller="RoomService" asp-action="Index" class="dropdown-item">Quản lý sử dụng dịch vụ</a>
                                                 <a asp-controller="Account" asp-action="ChangePassword" class="dropdown-item">Quên mật khẩu</a>
                                                 <a asp-controller="Account" asp-action="Logout" class="dropdown-item">Đăng xuất </a>
                                             </div>

@@ -9,7 +9,7 @@ using BaiTapLonDuAnMau.Models;
 
 namespace BaiTapLonDuAnMau.Controllers
 {
-    public class HotelInfoController : Controller
+    public class HotelInfoController : BaseController
     {
         private readonly BTLDAM _context;
 
@@ -21,9 +21,17 @@ namespace BaiTapLonDuAnMau.Controllers
         // GET: HotelInfo
         public async Task<IActionResult> Index()
         {
-            return _context.HotelInfo != null ?
+            if (IsLogin && string.Compare(ViewBag.IsLogin, "1", true) == 0)
+            {
+                return _context.HotelInfo != null ?
                         View(await _context.HotelInfo.ToListAsync()) :
                         Problem("Entity set 'BTLDAM.HotelInfo'  is null.");
+            }
+            else
+            {
+                return RedirectToAction("Login", "Account");
+            }
+          
          
         }
         [HttpGet]

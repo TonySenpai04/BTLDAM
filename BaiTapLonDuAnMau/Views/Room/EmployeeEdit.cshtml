@@ -61,8 +61,15 @@
                 <span asp-validation-for="Stars" class="text-danger"></span>
             </div>
             <div class="form-group">
-               
-                <input asp-for="Status" class="form-control" />
+              
+                <select asp-for="Status" class="form-control">
+                    <option value="">Chọn trạng thái</option>
+                    <option value="Trống">Trống</option>
+                    <option value="Đang sửa chữa">Đang bảo trì</option>
+                    <option value="Đang dùng">Đang dùng</option>
+                    <option value="Đang dùng">Đã đặt-Chờ xác nhận</option>
+                    <option value="Đang dùng">Đã duyệt-Chờ nhận phòng</option>
+                </select>
                 <span asp-validation-for="Status" class="text-danger"></span>
             </div>
             <div class="form-group">

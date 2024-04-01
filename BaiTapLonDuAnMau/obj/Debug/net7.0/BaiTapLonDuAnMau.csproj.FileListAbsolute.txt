@@ -258,3 +258,4 @@ C:\Users\DƯƠNG VĂN SỰ\source\repos\BaiTapLonDuAnMau\BaiTapLonDuAnMau\bin\De
 C:\Users\DƯƠNG VĂN SỰ\source\repos\BaiTapLonDuAnMau\BaiTapLonDuAnMau\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 C:\Users\DƯƠNG VĂN SỰ\source\repos\BaiTapLonDuAnMau\BaiTapLonDuAnMau\obj\Debug\net7.0\BaiTapLonDuAnMau.csproj.CopyComplete
 C:\Users\DƯƠNG VĂN SỰ\source\repos\BaiTapLonDuAnMau\BaiTapLonDuAnMau\obj\Debug\net7.0\scopedcss\Views\Shared\_LayoutEmpty.cshtml.rz.scp.css
+C:\Users\DƯƠNG VĂN SỰ\source\repos\BaiTapLonDuAnMau\BaiTapLonDuAnMau\obj\Debug\net7.0\scopedcss\Views\Shared\_LayoutPage.cshtml.rz.scp.css

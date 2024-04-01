@@ -7,10 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BaiTapLonDuAnMau.Models;
 using Microsoft.CodeAnalysis.Elfie.Diagnostics;
+using NuGet.Protocol.Plugins;
 
 namespace BaiTapLonDuAnMau.Controllers
 {
-    public class StaffController : Controller
+    public class StaffController : BaseController
     {
         private readonly BTLDAM _context;
         private readonly IWebHostEnvironment _webHostEnvironment;
@@ -30,9 +31,17 @@ namespace BaiTapLonDuAnMau.Controllers
         // GET: Staff
         public async Task<IActionResult> Index()
         {
-              return _context.Staffs != null ? 
+            if (IsLogin && string.Compare(ViewBag.IsLogin, "1", true) == 0)
+            {
+                return _context.Staffs != null ?
                           View(await _context.Staffs.ToListAsync()) :
                           Problem("Entity set 'BTLDAM.Staffs'  is null.");
+            }
+            else
+            {
+                return RedirectToAction("Login", "Account");
+            }
+           
         }
 
         // GET: Staff/Details/5

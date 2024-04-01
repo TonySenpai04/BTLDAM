@@ -63,7 +63,15 @@ namespace BaiTapLonDuAnMau.Controllers
                         {
                             HttpContext.Session.SetString("IsLogin", "2");
                         }
-                        CurrentUser = userLogin.Username;
+                        if (userLogin.Status != "Đã bị khóa")
+                        {
+                            CurrentUser = userLogin.Username;
+                        }
+                        else
+                        {
+                            ModelState.AddModelError("", "Tài khoản đã bị khóa");
+                            return View();
+                        }
 
                         return RedirectToAction("Index", "Home");
 
@@ -78,8 +86,71 @@ namespace BaiTapLonDuAnMau.Controllers
             }
             return View(account);
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> LockAcccount(int? id)
+        {
+			if (id == null || _context.Accounts == null)
+			{
+				return NotFound();
+			}
 
+			var account = await _context.Accounts.FindAsync(id);
+			if (account == null)
+			{
+				return NotFound();
+			}
+			account.Status = "Đã bị khóa";
 
+            _context.Update(account);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> UnlockAcccount(int? id)
+		{
+			if (id == null || _context.Accounts == null)
+			{
+				return NotFound();
+			}
+
+			var account = await _context.Accounts.FindAsync(id);
+			if (account == null)
+			{
+				return NotFound();
+			}
+			account.Status = "Đang sử dụng";
+            _context.Update(account);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ResetPassword(int? id)
+        {
+            if (id == null || _context.Accounts == null)
+            {
+                return NotFound();
+            }
+
+            var account = await _context.Accounts.FindAsync(id);
+            if (account == null)
+            {
+                return NotFound();
+            }
+            SHA256 hasMethod = SHA256.Create();
+            string newPassword = "123456789";
+            newPassword = Util.Cryptography.GetHash(hasMethod, newPassword);
+            account.Password = newPassword;
+            _context.Update(account);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+
+        }
         public IActionResult Register()
         {
             return View();
@@ -184,9 +255,17 @@ namespace BaiTapLonDuAnMau.Controllers
         // GET: Account
         public async Task<IActionResult> Index()
         {
-            var bTLDAM = _context.Accounts.Include(a => a.Staff);
-            return View(await bTLDAM.ToListAsync());
+            if (IsLogin && string.Compare(ViewBag.IsLogin, "0", true)==0)
+            {
+                var bTLDAM = _context.Accounts.Include(a => a.Staff);
+                return View(await bTLDAM.ToListAsync());
+            }
+            else
+            {
+                return RedirectToAction(nameof(Login));
+            }
         }
+       
 
         // GET: Account/Details/5
         public async Task<IActionResult> Details(int? id)

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BaiTapLonDuAnMau.Models;
+using NuGet.Protocol.Plugins;
 
 namespace BaiTapLonDuAnMau.Controllers
 {
@@ -24,6 +25,8 @@ namespace BaiTapLonDuAnMau.Controllers
         {
             var rooms = await _context.Rooms.ToListAsync();
             ViewBag.Rooms = rooms;
+            List<Service> services = await _context.Services.ToListAsync();
+            ViewBag.Services = services;
 
             return View("Booking");
 
@@ -38,17 +41,27 @@ namespace BaiTapLonDuAnMau.Controllers
                 return NotFound();
             }
             ViewBag.RoomId = roomId;
+            List<Service> services = await _context.Services.ToListAsync();
+            ViewBag.Services = services;
+
             return View("Booking", room);
         }
 
+       
         [HttpPost]
         public async Task<IActionResult> BookNow(string fullName, string phoneNumber, string email,
-            DateTime checkIn, DateTime checkOut, int numAdults, int numChildren, int roomId, string specialRequests)
+            DateTime checkIn, DateTime checkOut, int numAdults, int numChildren, int roomId, string specialRequests, List<int> selectedServices)
         {
             try
             {
+                if (checkOut <= checkIn)
+                {
+                    return BadRequest("Check-out time must be greater than check-in time.");
+                }
+                TimeSpan duration = checkOut - checkIn;
+                int hours = (int)duration.TotalHours;
 
-                // Create a new Booking object
+                // Tạo đối tượng Booking
                 var booking = new Booking
                 {
                     RoomId = roomId,
@@ -61,32 +74,78 @@ namespace BaiTapLonDuAnMau.Controllers
                     Status = "Chờ duyệt",
                     SpecialRequests = specialRequests,
                     Email = email,
-                    StaffId=null,
+                    StaffId = null,
                 };
 
-                // Add the new Booking to the context
+                // Lưu thông tin đặt phòng vào cơ sở dữ liệu
                 _context.Bookings.Add(booking);
+                await _context.SaveChangesAsync();
+
+                // Cập nhật trạng thái phòng và tính tổng số tiền
                 var room = await _context.Rooms.FindAsync(roomId);
+                decimal roomTotalAmount = 0;
                 if (room != null)
                 {
                     room.Status = "Đã đặt-Chờ xác nhận";
+                    roomTotalAmount = room.Price * hours;
                 }
-                // Update the status of the room
 
+                // Tính tổng số tiền từ các dịch vụ đã chọn
+                decimal serviceTotalAmount = 0;
+                if (selectedServices != null && selectedServices.Any())
+                {
+                    foreach (var serviceId in selectedServices)
+                    {
+                        var service = await _context.Services.FindAsync(serviceId);
+                        if (service != null)
+                        {
+                            serviceTotalAmount += service.Price;
+                        }
+                    }
+                }
+                decimal totalAmount = roomTotalAmount + serviceTotalAmount;
 
+				List<int> selectedServicesId = new List<int>();
 
-                await _context.SaveChangesAsync();
+				if (selectedServices != null && selectedServices.Any())
+                {
+                    foreach (var serviceId in selectedServices)
+                    {
+                        var roomService = new RoomService
+                        {
+                            BookingId = booking.Id,
+                            RoomId = roomId,
+                            ServiceId = serviceId,
+						
+						};
+						
 
-                return Ok("Booking successful!");
+						_context.RoomService.Add(roomService);
+						await _context.SaveChangesAsync();
+
+						selectedServicesId.Add(roomService.Id);
+					}
+                    await _context.SaveChangesAsync();
+                }
+               
+
+				// Chuyển hướng đến trang CheckOut với thông tin tổng số tiền
+				return Json(new { success = true, redirectUrl = Url.Action("CheckOut", new { totalAmount, roomId , selectedServicesId }) });
             }
             catch (Exception ex)
             {
-
                 return BadRequest($"Booking failed: {ex.Message}");
             }
         }
 
-        [HttpPost]
+        public IActionResult CheckOut(decimal totalAmount,int roomId,List<int> selectedServicesId)
+		{
+			ViewBag.TotalAmount = totalAmount;
+            ViewBag.RoomId = roomId;
+			ViewBag.SelectedServicesId = selectedServicesId;
+			return View("~/Views/Payment/Payment.cshtml");
+		}
+		[HttpPost]
         public async Task<ActionResult> CancelBooking(string roomNumber, string phoneNumber)
         {
             // Kiểm tra xem số phòng và số điện thoại có tồn tại và khớp với dữ liệu trong cơ sở dữ liệu không
@@ -94,17 +153,43 @@ namespace BaiTapLonDuAnMau.Controllers
 
             if (booking != null)
             {
-                // Nếu tìm thấy đặt phòng, hủy đặt phòng ở đây (ví dụ: cập nhật trạng thái của đặt phòng)
-                //var room = await _context.Rooms.FindAsync(booking.RoomId);
-                //if (room != null)
-                //{
 
-                //    room.Status = "Trống";
-                //}
-                //_context.Bookings.Remove(booking);
+                try
+                {
+                    booking.Status = "Đã hủy";
 
+                    // Xác định nhân viên thực hiện xác nhận
+                    var userLogin = await _context.Accounts.FirstOrDefaultAsync(m => m.Username == CurrentUser);
+                    if (userLogin != null)
+                    {
+                        var staff = await _context.Staff.FirstOrDefaultAsync(m => m.Id == userLogin.StaffId);
+                        if (staff != null)
+                        {
+                            booking.StaffId = staff.Id;
+                        }
+                    }
 
-                //_context.SaveChanges(); 
+                    _context.Update(booking);
+                    var roomBooking = await _context.Room.FindAsync(booking.RoomId);
+                    if (roomBooking != null)
+                    {
+                        roomBooking.Status = "Trống";
+                    }
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!BookingExists(booking.Id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+
+              
 
                 return Json(new { success = true, message = "Booking successfully cancelled." });
             }
@@ -146,6 +231,11 @@ namespace BaiTapLonDuAnMau.Controllers
                 }
 
                 _context.Update(booking);
+                var roomBooking = await _context.Room.FindAsync(booking.RoomId);
+                if(roomBooking != null)
+                {
+                    roomBooking.Status = "Đã duyệt-Chờ nhận phòng";
+                }
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
@@ -163,11 +253,72 @@ namespace BaiTapLonDuAnMau.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Refuse(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var booking = await _context.Bookings.FindAsync(id);
+
+            if (booking == null)
+            {
+                return NotFound();
+            }
+
+            try
+            {
+                booking.Status = "Đã hủy";
+
+                // Xác định nhân viên thực hiện xác nhận
+                var userLogin = await _context.Accounts.FirstOrDefaultAsync(m => m.Username == CurrentUser);
+                if (userLogin != null)
+                {
+                    var staff = await _context.Staff.FirstOrDefaultAsync(m => m.Id == userLogin.StaffId);
+                    if (staff != null)
+                    {
+                        booking.StaffId = staff.Id;
+                    }
+                }
+
+                _context.Update(booking);
+                var roomBooking = await _context.Room.FindAsync(booking.RoomId);
+                if (roomBooking != null)
+                {
+                    roomBooking.Status = "Trống";
+                }
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!BookingExists(booking.Id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return RedirectToAction(nameof(Index));
+        }
         // GET: Booking
         public async Task<IActionResult> Index()
         {
+
+            if (!IsLogin)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
             var bTLDAM = _context.Bookings.Include(b => b.Room);
-            return View(await bTLDAM.ToListAsync());
+                return View(await bTLDAM.ToListAsync());
+            
+           
         }
 
         // GET: Booking/Details/5

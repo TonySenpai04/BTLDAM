@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BaiTapLonDuAnMau.Controllers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace BaiTapLonDuAnMau.Models
 {
-    public class ServiceController : Controller
+    public class ServiceController : BaseController
     {
         private readonly BTLDAM _context;
 
@@ -29,9 +30,17 @@ namespace BaiTapLonDuAnMau.Models
         // GET: Service
         public async Task<IActionResult> Index()
         {
-              return _context.Services != null ? 
-                          View(await _context.Services.ToListAsync()) :
-                          Problem("Entity set 'BTLDAM.Services'  is null.");
+            if (IsLogin && string.Compare(ViewBag.IsLogin, "1", true) == 0)
+            {
+                return _context.Services != null ?
+                         View(await _context.Services.ToListAsync()) :
+                         Problem("Entity set 'BTLDAM.Services'  is null.");
+            }
+            else
+            {
+                return RedirectToAction("Login", "Account");
+            }
+           
         }
 
         // GET: Service/Details/5
