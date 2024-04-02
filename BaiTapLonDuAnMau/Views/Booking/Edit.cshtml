@@ -60,7 +60,14 @@
             </div>
             <div class="form-group">
                 <label asp-for="Status" class="control-label"></label>
-                <input asp-for="Status" class="form-control" />
+                <select asp-for="Status" class="form-control">
+                    <option value="">Chọn trạng thái</option>
+                    <option value="Trống">Đã duyệt</option>
+                    <option value="Đang sửa chữa">Đã hủy</option>
+                    <option value="Đang dùng">Đã bị từ chối </option>
+                    <option value="Đang dùng">Đã duyệt-Chờ nhận phòng </option>
+                    <option value="Đang dùng">Đã đặt-Chờ xác nhận </option>
+                </select>
                 <span asp-validation-for="Status" class="text-danger"></span>
             </div>
             <div class="form-group">

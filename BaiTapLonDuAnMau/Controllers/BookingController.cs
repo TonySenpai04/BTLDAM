@@ -271,7 +271,7 @@ namespace BaiTapLonDuAnMau.Controllers
 
             try
             {
-                booking.Status = "Đã hủy";
+                booking.Status = "Đã bị từ chối";
 
                 // Xác định nhân viên thực hiện xác nhận
                 var userLogin = await _context.Accounts.FirstOrDefaultAsync(m => m.Username == CurrentUser);

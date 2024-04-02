@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="tonysenpai04-001-site1" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\DƯƠNG\ VĂN\ SỰ\\source\\repos\\BaiTapLonDuAnMau\\BaiTapLonDuAnMau\\obj\\Release\\net7\.0\\PubTmp\\Out\\$" />
+  </parameter>
+  <parameter name="BaiTapLonDuAnMau.Models.BTLDAM" description="" value="Data Source=SQL5113.site4now.net,1433;Initial Catalog=db_aa72c6_login;User Id=db_aa72c6_login_admin;Password=Tonysenpai2004#;TrustServerCertificate=True" tags="dbfullsql">
+    <parameterEntry kind="ProviderPath" scope="dbfullsql" match="^C:\\Users\\DƯƠNG\ VĂN\ SỰ\\source\\repos\\BaiTapLonDuAnMau\\BaiTapLonDuAnMau\\obj\\Release\\net7\.0\\PubTmp\\EFSQLScripts\\BaiTapLonDuAnMau\.Models\.BTLDAM\.sql$" />
+  </parameter>
+</parameters>

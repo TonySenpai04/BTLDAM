@@ -1,5 +1,6 @@
 ﻿using BaiTapLonDuAnMau.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 
 namespace BaiTapLonDuAnMau.Controllers
@@ -7,14 +8,23 @@ namespace BaiTapLonDuAnMau.Controllers
     public class HomeController : BaseController
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly BTLDAM _context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, BTLDAM context)
         {
             _logger = logger;
+            _context = context;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
+            var rooms = await _context.Rooms.ToListAsync();
+            ViewBag.RoomsHome = rooms.Take(3).ToList();
+
+            var staff = await _context.Staff.ToListAsync();
+            ViewBag.StaffHome = staff.Take(4).ToList();
+            var services = await _context.Service.ToListAsync();
+            ViewBag.ServiceHome = services.Take(3).ToList();
             return View();
         }
         [HttpGet]

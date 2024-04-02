@@ -21,8 +21,16 @@ namespace BaiTapLonDuAnMau.Controllers
         // GET: PaymentDetail
         public async Task<IActionResult> Index()
         {
-            var bTLDAM = _context.PaymentDetail.Include(p => p.Payment).Include(p => p.RoomService);
-            return View(await bTLDAM.ToListAsync());
+            if (IsLogin )
+            {
+                var bTLDAM = _context.PaymentDetail.Include(p => p.Payment).Include(p => p.RoomService);
+                return View(await bTLDAM.ToListAsync());
+            }
+            else
+            {
+                return RedirectToAction("Login", "Account");
+            }
+        
         }
 
         // GET: PaymentDetail/Details/5

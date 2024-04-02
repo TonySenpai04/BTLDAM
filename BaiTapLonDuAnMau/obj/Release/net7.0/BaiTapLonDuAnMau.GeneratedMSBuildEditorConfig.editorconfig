@@ -1,0 +1,289 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = BaiTapLonDuAnMau
+build_property.RootNamespace = BaiTapLonDuAnMau
+build_property.ProjectDir = C:\Users\DƯƠNG VĂN SỰ\source\repos\BaiTapLonDuAnMau\BaiTapLonDuAnMau\
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\DƯƠNG VĂN SỰ\source\repos\BaiTapLonDuAnMau\BaiTapLonDuAnMau
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/Account/ChangePassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxDaGFuZ2VQYXNzd29yZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/Account/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/Account/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/Account/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/Account/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/Account/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/Booking/Booking.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va2luZ1xCb29raW5nLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/Booking/Confirm.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va2luZ1xDb25maXJtLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/Booking/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va2luZ1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/Booking/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va2luZ1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/Booking/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va2luZ1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/Booking/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va2luZ1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/Booking/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va2luZ1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/Home/About.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBYm91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/Home/Contact.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDb250YWN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/Home/testimonial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVx0ZXN0aW1vbmlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/HotelInfo/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG90ZWxJbmZvXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/HotelInfo/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG90ZWxJbmZvXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/HotelInfo/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG90ZWxJbmZvXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/HotelInfo/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG90ZWxJbmZvXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/HotelInfo/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG90ZWxJbmZvXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/PaymentDetail/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudERldGFpbFxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/PaymentDetail/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudERldGFpbFxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/PaymentDetail/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudERldGFpbFxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/PaymentDetail/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudERldGFpbFxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/PaymentDetail/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudERldGFpbFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/Payment/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudFxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/Payment/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudFxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/Payment/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudFxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/Payment/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudFxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/Payment/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/Payment/Payment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudFxQYXltZW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/RoomService/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9vbVNlcnZpY2VcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/RoomService/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9vbVNlcnZpY2VcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/RoomService/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9vbVNlcnZpY2VcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/RoomService/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9vbVNlcnZpY2VcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/RoomService/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9vbVNlcnZpY2VcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/Room/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9vbVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/Room/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9vbVxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/Room/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9vbVxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/Room/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9vbVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/Room/EmployeeEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9vbVxFbXBsb3llZUVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/Room/EmployeeIndex.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9vbVxFbXBsb3llZUluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/Room/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9vbVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/Room/RoomDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9vbVxSb29tRGV0YWlsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/Room/RoomList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUm9vbVxSb29tTGlzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/Service/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydmljZVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/Service/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydmljZVxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/Service/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydmljZVxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/Service/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydmljZVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/Service/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydmljZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/Service/Service.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VydmljZVxTZXJ2aWNlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/Staff/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhZmZcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/Staff/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhZmZcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/Staff/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhZmZcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/Staff/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhZmZcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/Staff/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhZmZcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/Staff/Team.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhZmZcVGVhbS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-puave9954e
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/Shared/_LayoutEmpty.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRFbXB0eS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = b-r3pz0l7kte
+
+[C:/Users/DƯƠNG VĂN SỰ/source/repos/BaiTapLonDuAnMau/BaiTapLonDuAnMau/Views/Shared/_LayoutPage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRQYWdlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = b-hjmeg6m6da

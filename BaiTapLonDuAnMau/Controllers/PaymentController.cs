@@ -61,13 +61,14 @@ namespace BaiTapLonDuAnMau.Controllers
 				await _context.SaveChangesAsync();
 
 
-				// Chuyển hướng đến trang PaymentSuccess
-				return RedirectToAction("Index");
-			}
-			catch (Exception ex)
+
+                return View("~/Views/Home/Index.cshtml");
+
+            }
+            catch (Exception ex)
 			{
 				return BadRequest($"Booking failed: {ex.Message}");
-				//return RedirectToAction("Payment");
+				
 			}
 		}
 
@@ -81,8 +82,16 @@ namespace BaiTapLonDuAnMau.Controllers
         // GET: Payment
         public async Task<IActionResult> Index()
         {
-            var bTLDAM = _context.Payment.Include(p => p.Room);
-            return View(await bTLDAM.ToListAsync());
+            if (IsLogin)
+            {
+                var bTLDAM = _context.Payment.Include(p => p.Room);
+                return View(await bTLDAM.ToListAsync());
+            }
+            else
+            {
+                return RedirectToAction("Login", "Account");
+            }
+         
         }
 
         // GET: Payment/Details/5

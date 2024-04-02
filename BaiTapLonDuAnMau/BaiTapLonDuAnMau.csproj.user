@@ -14,5 +14,6 @@
     <WebStackScaffolding_DbContextTypeFullName>BaiTapLonDuAnMau.Models.BTLDAM</WebStackScaffolding_DbContextTypeFullName>
     <WebStackScaffolding_IsAsyncSelected>False</WebStackScaffolding_IsAsyncSelected>
     <WebStackScaffolding_IsViewGenerationSelected>True</WebStackScaffolding_IsViewGenerationSelected>
+    <NameOfLastUsedPublishProfile>C:\Users\DƯƠNG VĂN SỰ\source\repos\BaiTapLonDuAnMau\BaiTapLonDuAnMau\Properties\PublishProfiles\tonysenpai04-001-site1 - Web Deploy.pubxml</NameOfLastUsedPublishProfile>
   </PropertyGroup>
 </Project>

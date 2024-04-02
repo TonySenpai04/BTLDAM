@@ -1,0 +1,147 @@
+/* _content/BaiTapLonDuAnMau/Views/Shared/_Layout.cshtml.rz.scp.css */
+/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand[b-puave9954e] {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+a[b-puave9954e] {
+  color: #0077cc;
+}
+
+.btn-primary[b-puave9954e] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active[b-puave9954e], .nav-pills .show > .nav-link[b-puave9954e] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.border-top[b-puave9954e] {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom[b-puave9954e] {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow[b-puave9954e] {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy[b-puave9954e] {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+.footer[b-puave9954e] {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px;
+}
+/* _content/BaiTapLonDuAnMau/Views/Shared/_LayoutEmpty.cshtml.rz.scp.css */
+/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand[b-r3pz0l7kte] {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+a[b-r3pz0l7kte] {
+  color: #0077cc;
+}
+
+.btn-primary[b-r3pz0l7kte] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active[b-r3pz0l7kte], .nav-pills .show > .nav-link[b-r3pz0l7kte] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.border-top[b-r3pz0l7kte] {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom[b-r3pz0l7kte] {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow[b-r3pz0l7kte] {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy[b-r3pz0l7kte] {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+.footer[b-r3pz0l7kte] {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px;
+}
+/* _content/BaiTapLonDuAnMau/Views/Shared/_LayoutPage.cshtml.rz.scp.css */
+/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand[b-hjmeg6m6da] {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+a[b-hjmeg6m6da] {
+  color: #0077cc;
+}
+
+.btn-primary[b-hjmeg6m6da] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active[b-hjmeg6m6da], .nav-pills .show > .nav-link[b-hjmeg6m6da] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.border-top[b-hjmeg6m6da] {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom[b-hjmeg6m6da] {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow[b-hjmeg6m6da] {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy[b-hjmeg6m6da] {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+.footer[b-hjmeg6m6da] {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px;
+}
