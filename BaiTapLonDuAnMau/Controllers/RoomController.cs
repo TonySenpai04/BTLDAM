@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BaiTapLonDuAnMau.Models;
+using System.Globalization;
 
 namespace BaiTapLonDuAnMau.Controllers
 {
@@ -186,13 +187,42 @@ namespace BaiTapLonDuAnMau.Controllers
             }
             return View(roomViewModel);
         }
-        [HttpGet]
+        //[HttpGet]
         [Route("RoomList")]
-        public async Task<IActionResult> RoomList()
+        //public async Task<IActionResult> RoomList()
+        //{
+        //    List<Room> rooms = await _context.Rooms.Where(r => r.Status == "Trống").ToListAsync();
+        //    return View(rooms);
+        //}
+        public async Task<IActionResult> RoomList(string checkInDate, string checkOutDate, int adultCount, int childCount)
         {
-            List<Room> rooms = await _context.Rooms.Where(r => r.Status == "Trống").ToListAsync();
+            IQueryable<Room> roomsQuery = _context.Rooms.Where(r => r.Status == "Trống");
+
+            // Kiểm tra xem có thông tin tìm kiếm được gửi lên từ form hay không
+            if (!string.IsNullOrEmpty(checkInDate) && !string.IsNullOrEmpty(checkOutDate) && adultCount > 0)
+            {
+                // Phân tích chuỗi ngày tháng thành đối tượng DateTime
+                DateTime checkIn = DateTime.ParseExact(checkInDate, "MM/dd/yyyy h:mm tt", CultureInfo.InvariantCulture);
+                DateTime checkOut = DateTime.ParseExact(checkOutDate, "MM/dd/yyyy h:mm tt", CultureInfo.InvariantCulture);
+                if (childCount > 0)
+                {
+                    // Xử lý thông tin tìm kiếm và truy vấn cơ sở dữ liệu để lấy danh sách các phòng phù hợp
+                    roomsQuery = roomsQuery.Where(r => r.Bed >= (adultCount + childCount) / 2);
+                }
+                else
+                {
+                    roomsQuery = roomsQuery.Where(r => r.Bed >= adultCount );
+                }
+            }
+
+            // Lấy danh sách phòng từ truy vấn
+            List<Room> rooms = await roomsQuery.ToListAsync();
+
+            // Trả về view hiển thị danh sách phòng
             return View(rooms);
         }
+
+
         public async Task<IActionResult> RoomDetail(int Id)
         {
             var room = await _context.Rooms.FirstOrDefaultAsync(r => r.Id == Id);

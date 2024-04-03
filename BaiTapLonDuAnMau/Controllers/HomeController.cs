@@ -33,17 +33,43 @@ namespace BaiTapLonDuAnMau.Controllers
         {
             return View();
         }
+        [HttpGet]
+        [Route("Statistics")]
+        public IActionResult Statistics()
+        {
+            if (IsLogin && string.Compare(ViewBag.IsLogin, "1", true) == 0)
+            {
+                int totalBookings = _context.Bookings.Count();
 
-        //[HttpGet]
-        //[Route("Service")]
-        //public IActionResult Service()
-        //{
-        //    return View();
-        //}
 
-       
+                var staffBookingCounts = _context.Bookings
+                                            .GroupBy(b => b.StaffId)
+                                            .Select(g => new
+                                            {
+                                                StaffId = g.Key,
+                                                StaffName = g.First().Staff.FullName,
+                                                BookingCount = g.Count()
+                                            })
+                                            .OrderByDescending(x => x.BookingCount)
+                                            .ToList();
 
-       
+
+                ViewData["TotalBookings"] = totalBookings;
+                ViewBag.StaffBookingCounts = staffBookingCounts;
+
+                return View("Statistics");
+            }
+            else
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
+           
+        }
+
+
+
+
 
         [HttpGet]
         [Route("Contact")]

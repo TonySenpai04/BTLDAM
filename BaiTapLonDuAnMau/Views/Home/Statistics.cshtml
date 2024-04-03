@@ -1,0 +1,34 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+
+}
+<h2>Thống kê số lượng đơn đặt phòng</h2>
+<p>Tổng số đơn đặt phòng: @ViewData["TotalBookings"]</p>
+
+<h2>Thống kê nhân viên xác nhận nhiều đơn đặt phòng nhất</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Nhân viên
+            </th>
+            <th>
+                Số lượng đơn đặt phòng
+            </th>
+          
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in ViewBag.StaffBookingCounts)
+        {
+            <tr>
+                <td>@item.StaffName</td>
+                <td>@item.BookingCount</td>
+            </tr>
+        }
+    </tbody>
+</table>
