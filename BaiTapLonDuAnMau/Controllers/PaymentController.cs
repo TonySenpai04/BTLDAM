@@ -22,16 +22,35 @@ namespace BaiTapLonDuAnMau.Controllers
 		{
 			try
 			{
-				var payment = new Payment
-				{
-					PaymentMethod = paymentMethod,
-					PaymentDate = paymentDate,
-					IsPaid = true, 			 
-                    Deposit=0,
-                    TotalAmount= totalAmount,
-                    RoomId= roomId,
+                Payment payment;
+                if (paymentMethod == "payOnArrivalSection")
+                {
+                    payment = new Payment
+                    {
+                        PaymentMethod = paymentMethod,
+                        PaymentDate = paymentDate,
+                        IsPaid = false,
+                        Deposit = 0,
+                        TotalAmount = totalAmount,
+                        RoomId = roomId,
 
-				};
+                    };
+
+
+                }
+                else
+                {
+                    payment = new Payment
+                    {
+                        PaymentMethod = paymentMethod,
+                        PaymentDate = paymentDate,
+                        IsPaid = true,
+                        Deposit = 0,
+                        TotalAmount = totalAmount,
+                        RoomId = roomId,
+
+                    };
+                }
 				_context.Payment.Add(payment);
 
 				await _context.SaveChangesAsync();
@@ -62,7 +81,8 @@ namespace BaiTapLonDuAnMau.Controllers
 
 
 
-                return View("~/Views/Home/Index.cshtml");
+                return RedirectToAction("Index", "Home");
+
 
             }
             catch (Exception ex)

@@ -23,7 +23,10 @@ namespace BaiTapLonDuAnMau.Controllers
 
         public async Task<IActionResult> BookingView()
         {
-            var rooms = await _context.Rooms.ToListAsync();
+            var rooms = await _context.Rooms
+    .Where(r => r.Status == "Trống")
+    .ToListAsync();
+
             ViewBag.Rooms = rooms;
             List<Service> services = await _context.Services.ToListAsync();
             ViewBag.Services = services;

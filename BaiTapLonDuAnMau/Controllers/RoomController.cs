@@ -207,7 +207,7 @@ namespace BaiTapLonDuAnMau.Controllers
                 if (childCount > 0)
                 {
                     // Xử lý thông tin tìm kiếm và truy vấn cơ sở dữ liệu để lấy danh sách các phòng phù hợp
-                    roomsQuery = roomsQuery.Where(r => r.Bed >= (adultCount + childCount) / 2);
+                    roomsQuery = roomsQuery.Where(r => r.Bed >= Math.Ceiling((double)(adultCount + childCount) / 2));
                 }
                 else
                 {
