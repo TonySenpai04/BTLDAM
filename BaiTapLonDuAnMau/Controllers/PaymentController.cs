@@ -78,13 +78,13 @@ namespace BaiTapLonDuAnMau.Controllers
 				}
 
 				await _context.SaveChangesAsync();
+				
 
 
+				 return RedirectToAction("Index", "Home");
 
-                return RedirectToAction("Index", "Home");
 
-
-            }
+			}
             catch (Exception ex)
 			{
 				return BadRequest($"Booking failed: {ex.Message}");
@@ -190,6 +190,7 @@ namespace BaiTapLonDuAnMau.Controllers
             {
                 try
                 {
+                  
                     _context.Update(payment);
                     await _context.SaveChangesAsync();
                 }

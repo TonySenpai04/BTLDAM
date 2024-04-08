@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BaiTapLonDuAnMau.Models;
 using NuGet.Protocol.Plugins;
+using System.Collections;
 
 namespace BaiTapLonDuAnMau.Controllers
 {
@@ -74,7 +75,7 @@ namespace BaiTapLonDuAnMau.Controllers
                     CheckOut = checkOut,
                     NumAdults = numAdults,
                     NumChildren = numChildren,
-                    Status = "Chờ duyệt",
+                    Status = "Đã đặt-Chờ xác nhận",
                     SpecialRequests = specialRequests,
                     Email = email,
                     StaffId = null,
@@ -385,6 +386,9 @@ namespace BaiTapLonDuAnMau.Controllers
             }
             ViewData["RoomId"] = new SelectList(_context.Rooms, "Id", "RoomNumber", booking.RoomId);
             ViewData["StaffId"] = new SelectList(_context.Staffs, "Id", "FullName", booking.StaffId);
+            var account = await _context.Account.FirstOrDefaultAsync(s => s.Username == CurrentUser);
+            var staff = account.StaffId;
+            ViewBag.StaffId = staff;
             return View(booking);
         }
 
@@ -404,7 +408,9 @@ namespace BaiTapLonDuAnMau.Controllers
             {
                 try
                 {
-                    _context.Update(booking);
+                   
+                 
+					_context.Update(booking);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)

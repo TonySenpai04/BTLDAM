@@ -93,7 +93,7 @@
 	</div>*@
 
 	
-	<form id="creditCardForm" action="@Url.Action("SubmitPayment", "Payment")" method="post">
+	<form id="creditCardForm" action="@Url.Action("SubmitPayment", "Payment")" method="post" onsubmit="return SubmitPayment()">
 		<label for="totalAmount">Total Amount:</label>
 		<input type="number" name="totalAmount" value="@ViewBag.TotalAmount" readonly>
 		<input type="hidden" name="RoomId" value=" @ViewBag.RoomId">
@@ -261,6 +261,38 @@
 				selectedPaymentForm.style.display = "block";
 			}
 		}
+	</script>
+	<div id="statusMessage"></div>
+
+	<script>
+		// JavaScript của bạn
+		async function SubmitPayment() {
+			try {
+				// code của bạn ở đây
+
+				// sau khi thực hiện lưu dữ liệu, hiển thị thông báo
+				var isSuccess = true; // Điều này cần phải dựa trên kết quả thực tế của hành động của bạn
+				var message = isSuccess ? "Payment successful!" : "Payment failed!";
+				displayStatusMessage(message, isSuccess);
+
+				// Hiển thị thông báo alert
+				alert(message);
+
+				return isSuccess; // Đảm bảo form chỉ submit nếu thanh toán thành công
+			} catch (error) {
+				console.error("SubmitPayment failed:", error);
+				return false; // Ngăn form submit nếu có lỗi
+			}
+		}
+
+		function displayStatusMessage(message, isSuccess) {
+			var statusMessageElement = document.getElementById("statusMessage");
+			statusMessageElement.innerHTML = message;
+			statusMessageElement.style.display = "block";
+			statusMessageElement.style.color = isSuccess ? "green" : "red";
+		}
+
+				// Hàm togglePaymentForm và các hàm khác nếu có
 	</script>
 </body>
 </html>
