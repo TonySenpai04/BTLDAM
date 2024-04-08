@@ -74,7 +74,7 @@
                         </div>
                     </div>
                     <nav class="navbar navbar-expand-lg bg-dark navbar-dark p-3 p-lg-0">
-                        <a href="index.html" class="navbar-brand d-block d-lg-none">
+                        <a asp-controller ="Home" asp-action="Index" class="navbar-brand d-block d-lg-none">
                             <h1 class="m-0 text-primary text-uppercase">Hotelier</h1>
                         </a>
                         <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -117,7 +117,7 @@
                                                 <a asp-controller="Room" asp-action="EmployeeIndex" class="dropdown-item">Quản lý trạng thái đặt phòng</a>
                                                 <a asp-controller="Payment" asp-action="Index" class="dropdown-item">Quản lý thanh toán </a>
                                                 <a asp-controller="RoomService" asp-action="Index" class="dropdown-item">Quản lý sử dụng dịch vụ</a>
-                                                <a asp-controller="Account" asp-action="ChangePassword" class="dropdown-item">Quên mật khẩu</a>
+                                                <a asp-controller="Account" asp-action="ChangePassword" class="dropdown-item">Đổi mật khẩu</a>
                                                 <a asp-controller="Account" asp-action="Logout" class="dropdown-item">Đăng xuất </a>
                                             </div>
                                         </div>
@@ -185,7 +185,7 @@
             <div class="row g-5">
                 <div class="col-md-6 col-lg-4">
                     <div class="bg-primary rounded p-4">
-                        <a href="index.html"><h1 class="text-white text-uppercase mb-3">Tony's Hotel</h1></a>
+                        <a asp-controller="Home" asp-action="Index"><h1 class="text-white text-uppercase mb-3">Tony's Hotel</h1></a>
                         
                     </div>
                 </div>
